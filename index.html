@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Spinning Wheel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="theme-toggle">
+        <img id="themeIcon" src="assets/icons/moon.png" alt="Toggle Theme">
+    </div>
+        <h1>What Should I Choose? 🎯</h1>
+        
+        <div class="wheel-container">
+            <canvas id="wheel" width="500" height="500"></canvas>
+        </div>
+
+        <h2 id="result">Please add options to spin!</h2>
+        <button id="resetBtn" class="reset-btn">Reset All 🔄</button>
+
+        <button id="spinBtn" disabled>SPIN! 🎉</button>
+
+        <div class="add-option">
+            <input type="text" id="newOption" placeholder="e.g., Pizza 🍕, Sushi 🍣">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <div class="current-options">
+            <h3>Current Options:</h3>
+            <ul id="optionList"></ul>
+        </div>
+        
+
+    </div>
+
+    <script src="js/wheel.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/reset.js"></script>
+    
+
+</body>
+</html>

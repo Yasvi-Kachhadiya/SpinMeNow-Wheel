@@ -1,0 +1,16 @@
+.reset-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.reset-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
