@@ -2,12 +2,6 @@
 
 ![SpinMeNow Banner](assets/banner.png) 
 
-<<<<<<< HEAD
-<p align="center">
-  <img src="assets/icons/moon.png" width="80" alt="SpinMeNow Logo" />
-</p>
-=======
->>>>>>> 33cd777026378d32945bdf693a7d1fb2bbfac6f5
 
 ---
 
@@ -28,20 +22,6 @@ Welcome to **SpinMeNow**, your interactive, customizable spinning wheel for maki
 - 🔊 **Audio Integration**
 - 🌙 **Theme Switching**
 
-<<<<<<< HEAD
-## 📚 Topics Covered
-
-- 🛠️ **Project Structure & File Organization**
-- 🎨 **Custom Styling & Theming**
-- 🖱️ **Smooth Scrolling & Responsive UI**
-- 🔊 **Sound Integration**
-- 🗑️ **Dynamic Option Management**
-- 🌙 **Dark/Light Mode Toggle**
-- 📦 **Local Storage for Persistence**
-- 🧩 **Emoji Mapping (API Ready)**
-- 💻 **Mobile & Desktop Support**
-=======
->>>>>>> 33cd777026378d32945bdf693a7d1fb2bbfac6f5
 
 ---
 
@@ -78,11 +58,7 @@ Welcome to **SpinMeNow**, your interactive, customizable spinning wheel for maki
 ## 🖼️ Preview
 
 <p align="center">
-<<<<<<< HEAD
-  <img src="assets/demo.gif" width="400" alt="Demo GIF" />
-=======
   <img src="assets/preview.png" width="400" alt="preview" />
->>>>>>> 33cd777026378d32945bdf693a7d1fb2bbfac6f5
 </p>
 
 ---
@@ -141,19 +117,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ---
 
-<<<<<<< HEAD
-## 📄 License
-
-[MIT](LICENSE)
-
----
 
 <p align="center">
   <b>Made with <span style="color:#e25555;">❤️</span> for fun and decision-making!</b>
 </p>
-=======
-
-<p align="center">
-  <b>Made with <span style="color:#e25555;">❤️</span> for fun and decision-making!</b>
-</p>
->>>>>>> 33cd777026378d32945bdf693a7d1fb2bbfac6f5
