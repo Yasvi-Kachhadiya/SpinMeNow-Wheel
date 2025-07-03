@@ -16,6 +16,7 @@ let spinAngleStart = 0;
 let spinTime = 0;
 let spinTimeTotal = 0;
 
+
 function drawWheel() {
     if (options.length === 0) {
         ctx.clearRect(0, 0, 500, 500);
@@ -24,7 +25,6 @@ function drawWheel() {
 
     arc = Math.PI * 2 / options.length;
     let outsideRadius = 220;
-    let textRadius = 160;
     let insideRadius = 10;
 
     ctx.clearRect(0, 0, 500, 500);
@@ -33,34 +33,47 @@ function drawWheel() {
         let angle = startAngle + i * arc;
         ctx.fillStyle = colors[i % colors.length];
 
+        // Draw the segment
         ctx.beginPath();
         ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
         ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
         ctx.fill();
 
+        // Calculate the exact center angle of the segment
+        let textAngle = angle + arc / 2;
+
+        // Calculate text position (polar to Cartesian)
+        let textRadius = (outsideRadius + insideRadius) / 2 + 30;
+        let textX = 250 + textRadius * Math.cos(textAngle);
+        let textY = 250 + textRadius * Math.sin(textAngle);
+
         ctx.save();
-        ctx.fillStyle = "white";
-        ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius, 250 + Math.sin(angle + arc / 2) * textRadius);
-        ctx.rotate(angle + arc / 2 + Math.PI / 2);
+        ctx.translate(textX, textY);
 
-        // Calculate max possible font size based on segment width
-        let maxWidth = arc * textRadius * 1.6; // 1.6 factor for safe spacing
+        // Rotate text to always face the same direction (upright)
+        let rotationDegrees = (textAngle * 180 / Math.PI) % 360;
+        ctx.rotate(textAngle);
+        
+
         let text = options[i];
-        let fontSize = 18; // Start with large font
+        let fontSize = 20;
+        ctx.font = `${fontSize}px Arial`;
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
 
-        // Reduce font size until text fits
-        while (ctx.measureText(text).width > maxWidth && fontSize > 10) {
+        // Fit text to the segment width
+        let maxWidth = arc * textRadius * 0.9;
+        while (ctx.measureText(text).width > maxWidth && fontSize > 18) {
             fontSize--;
             ctx.font = `${fontSize}px Arial`;
         }
 
-        ctx.font = `${fontSize}px Arial`;
-        ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+        ctx.fillText(text, 0, 0);
         ctx.restore();
-
     }
 
-    // Draw arrow on the east side
+    // Draw the arrow
     ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.moveTo(250 + (outsideRadius + 7), 250 - 4);
@@ -75,9 +88,9 @@ function drawWheel() {
     ctx.strokeStyle = "white";
     ctx.lineWidth = 2;
     ctx.stroke();
-
-
 }
+
+
 
 function spin() {
     spinSound.play();
@@ -88,7 +101,7 @@ function spin() {
 }
 
 function rotateWheel() {
-    spinTime += 30;
+    spinTime += 28;
     if (spinTime >= spinTimeTotal) {
         stopRotateWheel();
         return;
@@ -101,9 +114,13 @@ function rotateWheel() {
 
 function stopRotateWheel() {
     clearTimeout(spinTimeout);
-    let degrees = startAngle * 180 / Math.PI + 90;
+    // Arrow is at 0 degrees (east/right)
+    let degrees = (startAngle * 180 / Math.PI) % 360;
     let arcd = arc * 180 / Math.PI;
-    let index = Math.floor((360 - degrees % 360) / arcd);
+    // The segment at the arrow is the one that covers 0 degrees
+    // So we need to find which segment contains angle = 0
+    let index = options.length - Math.floor((degrees % 360) / arcd) - 1;
+    if (index < 0) index += options.length;
     result.innerHTML = `Eat: <span>${options[index]}</span>!`;
 }
 
@@ -156,5 +173,3 @@ window.onload = () => {
     drawWheel();
     renderOptions();
 };
-
-
