@@ -1,12 +1,14 @@
 .reset-btn {
     background-color: #dc3545;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 30px;
+    font-size: 18px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-right: 4px;
+    margin-top: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.322);
     transition: background-color 0.3s, transform 0.3s;
 }
 
