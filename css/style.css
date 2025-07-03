@@ -43,10 +43,14 @@ button {
     border-radius: 6px;
     cursor: pointer;
     margin-top: 10px;
+    margin-left: 4px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.322);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
     opacity: 0.8;
+    transform: scale(1.05);
 }
 
 .add-option {
@@ -166,4 +170,58 @@ body.dark-mode .current-options button {
 
 body.dark-mode canvas {
     border: 4px solid #666;
+}
+
+/* Scrollable options container with blue scrollbar */
+.options-scroll-container {
+    max-height: 185px; /* ~3.5 items at 50px each */
+    overflow-y: auto;
+    border: 3px solid #bbbbbb;
+    border-radius: 8px;
+    background: #f8f8f8;
+    margin-top: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #2196F3 #e0e0e0;
+}
+
+/* Custom scrollbar for Webkit browsers */
+.options-scroll-container::-webkit-scrollbar {
+    width: 10px;
+    background: #e0e0e0;
+    border-radius: 8px;
+}
+.options-scroll-container::-webkit-scrollbar-thumb {
+    background: #2196F3;
+    border-radius: 8px;
+}
+
+#optionList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#optionList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1em;
+    background: transparent;
+}
+
+.remove-btn {
+    background: #2196F3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background 0.2s;
+}
+.remove-btn:hover {
+    background: #1769aa;
 }
