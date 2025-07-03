@@ -57,9 +57,7 @@ Welcome to **SpinMeNow**, your interactive, customizable spinning wheel for maki
 
 ## 🖼️ Preview
 
-<p align="center">
-  <img src="assets/preview.png" width="400" alt="preview" />
-</p>
+![Preview](assets/preview.png)
 
 ---
 
